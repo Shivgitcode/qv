@@ -1,0 +1,36 @@
+vproject_name: qv
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    main: ./main.go
+    ldflags:
+      - -s -w
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+
+brews:
+  - name: qv
+    tap:
+      owner: shivgitcode
+      name: homebrew-tap
+    commit_author:
+      name: Shivansh Agarwal
+      email: you@example.com
+    description: "A CLI tool for quick variable management"
+    homepage: "https://github.com/shivgitcode/qv"
+    license: "MIT"
+
+release:
+  github:
+    owner: shivgitcode
+    name: qv
+  prerelease: false
