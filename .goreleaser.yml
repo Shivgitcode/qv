@@ -51,7 +51,7 @@ brews:
       branch: main
     commit_author:
       name: Shivansh Agarwal
-      email: you@example.com
+      email: shivneeraj2004@gmail.com
     description: "A CLI tool for quick variable management"
     homepage: "https://github.com/shivgitcode/qv"
     license: MIT
@@ -59,7 +59,7 @@ brews:
     install: |
       bin.install "qv"
     test: |
-      system "#{bin}/qv", "list"
+      system "#{bin}/qv"
 
 scoops:
   - name: qv

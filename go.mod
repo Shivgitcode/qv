@@ -5,7 +5,6 @@ go 1.24.5
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
-	github.com/joho/godotenv v1.5.1
 )
 
 require (
