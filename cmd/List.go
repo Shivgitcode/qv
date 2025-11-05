@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"github.com/shivgitcode/qv/storage"
-
 	"github.com/AlecAivazis/survey/v2"
 )
 

@@ -9,8 +9,6 @@ import (
 
 	"github.com/shivgitcode/qv/internal"
 	"github.com/shivgitcode/qv/storage"
-
-	"github.com/joho/godotenv"
 )
 
 func check(e error){
@@ -21,20 +19,21 @@ func check(e error){
 }
 
 func Save(values []string){
-	err:=godotenv.Load()
-	check(err)
 	setCmd:=flag.NewFlagSet("set",flag.ExitOnError)
 	nameFlag:=setCmd.String("name","","used to give name to variable")
 	varFlag:=setCmd.String("var","","used to give name to variable")
 
 	var2:=make(map[string]string)
 
-	err=setCmd.Parse(values)
+
+	err:=setCmd.Parse(values)
 	check(err)
+	data:=storage.ReadFile()
+
 
 
 	if _,err:=os.Stat(internal.Path);err==nil{
-		data:=storage.ReadFile()
+		data=storage.ReadFile()
 		check(err)
 		err=json.Unmarshal(data,&var2)
 		check(err)

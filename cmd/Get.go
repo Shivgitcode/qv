@@ -6,17 +6,14 @@ import (
 	"fmt"
 	"github.com/shivgitcode/qv/storage"
 
-	"github.com/joho/godotenv"
 )
 
 
 
 func Get(values []string){
-	err:=godotenv.Load()
-	check(err)
 	getCmd:=flag.NewFlagSet("get",flag.ExitOnError)
 	nameFlag:=getCmd.String("name","","name for getting the flag")
-	err=getCmd.Parse(values)
+	err:=getCmd.Parse(values)
 	check(err)
 
 	var var1 map[string]string

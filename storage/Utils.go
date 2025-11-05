@@ -2,7 +2,6 @@ package storage
 
 import (
 	"os"
-	"github.com/joho/godotenv"
 	"github.com/shivgitcode/qv/internal"
 )
 
@@ -14,8 +13,6 @@ func check(e error){
 
 
 func ReadFile()[]byte{
-	err:=godotenv.Load()
-	check(err)
 	data,err:=os.ReadFile(internal.Path)
 	check(err)
 	return data
@@ -23,8 +20,6 @@ func ReadFile()[]byte{
 }
 
 func WriteFile(f []byte){
-	err:=godotenv.Load()
-	check(err)
-	err=os.WriteFile(internal.Path,f,0644)
+	err:=os.WriteFile(internal.Path,f,0644)
 	check(err)
 }
