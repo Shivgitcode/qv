@@ -5,10 +5,8 @@ import (
     figure "github.com/common-nighthawk/go-figure"
 )
 
-// Welcome prints a short help banner and quick initialization steps
-// for the QuickVariables (qv) CLI, using go-figure for the banner.
+
 func Welcome() {
-    // ASCII banner using go-figure (nighthawk repo)
     fig := figure.NewFigure("qv", "", true)
     fig.Print()
 
@@ -16,7 +14,6 @@ func Welcome() {
     fmt.Println("A tiny CLI to store and fetch named variables.")
     fmt.Println()
     fmt.Println("Quick init:")
-    fmt.Println("  1) Create .env with QV_PATH=~/.config/quickvariable.json")
     fmt.Println("  2) Run: qv init")
     fmt.Println()
     fmt.Println("Common commands:")

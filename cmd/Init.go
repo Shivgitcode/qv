@@ -4,10 +4,17 @@ import (
 	"flag"
 	"fmt"
 	"os"
+
+	"github.com/shivgitcode/qv/internal"
 )
 var path string="/Users/admin/.config/quickvariable.json"
 
 func writeFile(filepath string){
+	if _,err:=os.Stat(filepath);err==nil{
+		fmt.Println("File already initialised at",path)
+		return
+	}
+	
 	f,err:=os.Create(filepath)
 	if err!=nil{
 		panic(err)
@@ -27,7 +34,7 @@ func Init(values []string){
 	}
 
 
-	writeFile("/Users/admin/.config/quickvariable.json")
+	writeFile(internal.Path)
 
 	
 }
