@@ -1,7 +1,15 @@
 version: 2
-vproject_name: qv
+project_name: qv
+
+before:
+  hooks:
+    - go mod tidy
+
 builds:
-  - env:
+  - id: qv
+    main: ./main.go
+    binary: qv
+    env:
       - CGO_ENABLED=0
     goos:
       - linux
@@ -10,28 +18,81 @@ builds:
     goarch:
       - amd64
       - arm64
-    main: ./main.go
+    flags:
+      - -trimpath
     ldflags:
       - -s -w
 
 archives:
-  - format: tar.gz
-    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+  - id: archives
+    format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - README.md
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
 
 brews:
   - name: qv
-    tap:
+    repository:
       owner: shivgitcode
       name: homebrew-tap
+      branch: main
     commit_author:
       name: Shivansh Agarwal
       email: you@example.com
     description: "A CLI tool for quick variable management"
     homepage: "https://github.com/shivgitcode/qv"
-    license: "MIT"
+    license: MIT
+    directory: Formula
+    install: |
+      bin.install "qv"
+    test: |
+      system "#{bin}/qv", "list"
+
+scoops:
+  - name: qv
+    repository:
+      owner: shivgitcode
+      name: scoop-bucket
+      branch: main
+    commit_author:
+      name: Shivansh Agarwal
+      email: you@example.com
+    homepage: "https://github.com/shivgitcode/qv"
+    description: "A CLI tool for quick variable management"
+    license: MIT
+
+nfpms:
+  - id: packages
+    package_name: qv
+    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    maintainer: "Shivansh Agarwal shivneeraj2004@gmail.com"
+    description: "A CLI tool for quick variable management"
+    homepage: "https://github.com/shivgitcode/qv"
+    license: MIT
+    section: utils
+    priority: extra
+    bindir: /usr/local/bin
+    formats:
+      - deb
+      - rpm
+      - apk
 
 release:
   github:
     owner: shivgitcode
     name: qv
+  draft: false
   prerelease: false
