@@ -11,7 +11,7 @@ import (
 var path string="/Users/admin/.config/quickvariable.json"
 
 func writeFile(filepath string){
-	if _,err:=os.Stat(filepath);err==nil && internal.IsValidjson(filepath){
+	if _,err:=os.Stat(filepath);err==nil && !internal.IsValidjson(filepath){
 		fmt.Println("File already initialised at",path)
 		return
 	}
@@ -39,7 +39,8 @@ func Init(values []string){
 	}
 
 
-	writeFile(internal.Path)
+
+	writeFile(internal.GetFilePath())
 
 	
 }

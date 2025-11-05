@@ -13,13 +13,13 @@ func check(e error){
 
 
 func ReadFile()[]byte{
-	data,err:=os.ReadFile(internal.Path)
+	data,err:=os.ReadFile(internal.GetFilePath())
 	check(err)
 	return data
 
 }
 
 func WriteFile(f []byte){
-	err:=os.WriteFile(internal.Path,f,0644)
+	err:=os.WriteFile(internal.GetFilePath(),f,0644)
 	check(err)
 }

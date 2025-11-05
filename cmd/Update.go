@@ -22,7 +22,7 @@ func Update(values []string){
 
 	var4:=make(map[string]string)
 
-	if _,err:=os.Stat(internal.Path);err==nil{
+	if _,err:=os.Stat(internal.GetFilePath());err==nil{
 		f:=storage.ReadFile()
 		err:=json.Unmarshal(f,&var4)
 		check(err)

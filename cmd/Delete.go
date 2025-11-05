@@ -24,7 +24,7 @@ func Delete(values []string){
 	delete(var3,*nameFlag)
 	data,err:=json.Marshal(var3)
 	check(err)
-	err=os.WriteFile(internal.Path,data,0644)
+	err=os.WriteFile(internal.GetFilePath(),data,0644)
 	check(err)
 	fmt.Println("variable removed !")
 }

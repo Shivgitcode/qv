@@ -32,7 +32,7 @@ func Save(values []string){
 
 
 
-	if _,err:=os.Stat(internal.Path);err==nil{
+	if _,err:=os.Stat(internal.GetFilePath());err==nil{
 		data=storage.ReadFile()
 		check(err)
 		err=json.Unmarshal(data,&var2)
