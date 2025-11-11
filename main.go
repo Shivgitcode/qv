@@ -37,7 +37,7 @@ func main(){
 	case "list":
 		cmd.List(args)
 	default:
-		fmt.Println("command do not exist here is the list of available command\ninit\nsave\ndelete\nupdate")
+		fmt.Println("command do not exist here is the list of available command\ninit\nset\ndelete\nupdate\nget")
 	}
 
 	
