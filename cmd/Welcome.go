@@ -21,5 +21,5 @@ func Welcome() {
     fmt.Println("  - qv get --name <key>")
     fmt.Println("  - qv update --name <key> --var <value>")
     fmt.Println("  - qv delete --name <key>")
-    fmt.Println("  - qv list")
+    fmt.Println("  - qv list ")
 }
