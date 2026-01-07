@@ -31,7 +31,8 @@ func List(values []string){
 		var option string
 		err:=json.Unmarshal(f,&var5)
 		if err!=nil{
-			color.Red("No variable exist , Please Create One !")
+			color.Red("qv not initialised")
+			return
 		}
 		
 		for k,_:=range var5{
@@ -49,15 +50,12 @@ func List(values []string){
 			color.RGB(220, 20, 60).Print("Variable Copied in clipboard !")
 			
 		}
-
-
-
 		return
 	}
 	check(err)
 	err=json.Unmarshal(f,&var5)
 	if err!=nil{
-		color.Red("No Variables exist!")
+		color.Red("qv not initialised!")
 		return
 	}
 	for k,_:=range var5{

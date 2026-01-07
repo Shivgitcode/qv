@@ -30,6 +30,8 @@ func Save(values []string){
 	check(err)
 	data:=storage.ReadFile()
 
+	
+
 
 
 	if _,err:=os.Stat(internal.GetFilePath());err==nil{
