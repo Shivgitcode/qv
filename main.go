@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"github.com/shivgitcode/qv/cmd"
+	"github.com/shivgitcode/qv/v2/cmd"
 )
 
 

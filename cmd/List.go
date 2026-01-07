@@ -8,7 +8,7 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/atotto/clipboard"
-	"github.com/shivgitcode/qv/storage"
+	"github.com/shivgitcode/qv/v2/storage"
 	"github.com/fatih/color"
 )
 
@@ -21,6 +21,7 @@ func List(values []string){
 	
 	err:=listCmd.Parse(values)
 	check(err)
+	
 
 	var5:=make(map[string]string)
 	var arr1 []string
@@ -29,7 +30,9 @@ func List(values []string){
 	if *visualFlag{
 		var option string
 		err:=json.Unmarshal(f,&var5)
-		check(err)
+		if err!=nil{
+			color.Red("No variable exist , Please Create One !")
+		}
 		
 		for k,_:=range var5{
 			arr1=append(arr1, k)
@@ -53,7 +56,10 @@ func List(values []string){
 	}
 	check(err)
 	err=json.Unmarshal(f,&var5)
-	check(err)
+	if err!=nil{
+		color.Red("No Variables exist!")
+		return
+	}
 	for k,_:=range var5{
 		fmt.Println(k)
 	}

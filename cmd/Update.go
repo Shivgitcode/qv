@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shivgitcode/qv/internal"
-	"github.com/shivgitcode/qv/storage"
+	"github.com/shivgitcode/qv/v2/internal"
+	"github.com/shivgitcode/qv/v2/storage"
 )
 
 

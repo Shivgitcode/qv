@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shivgitcode/qv/internal"
+	"github.com/shivgitcode/qv/v2/internal"
 )
 var path string="/Users/admin/.config/quickvariable.json"
 

@@ -2,7 +2,7 @@ package storage
 
 import (
 	"os"
-	"github.com/shivgitcode/qv/internal"
+	"github.com/shivgitcode/qv/v2/internal"
 )
 
 func check(e error){
